@@ -13,6 +13,25 @@ public class Menu {
     ArrayList <Personaje> personajes = new ArrayList <Personaje>();
     ArrayList <Recurso> recursos = new ArrayList <Recurso>();
     
+    /*
+    Se obtiene un numro aleatorio entre 0 y 6
+    */
+    private int obtenerNumeroAleatorio (){
+        int numero= (int) ((Math.random()* 6)+1) ;
+        return numero;
+    }
+    
+    /*
+    Se obtiene el numero de veces que se ha obtenido un numero mayor o igual a 5
+    */
+    private int obtenerPuntaje(int puntaje){
+        int numExitos=0;
+        for (int i = 0; i < puntaje-1; i++) 
+            if(obtenerNumeroAleatorio()>=5) numExitos++;                
+            
+        return numExitos;
+    }
+    
     public Personaje darAltaP(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduzca el codigo: ");
