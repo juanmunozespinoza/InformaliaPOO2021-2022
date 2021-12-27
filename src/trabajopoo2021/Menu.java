@@ -26,12 +26,40 @@ public class Menu {
     */
     private int obtenerPuntaje(int puntaje){
         int numExitos=0;
-        for (int i = 0; i < puntaje-1; i++) 
+        for (int i = 0; i < puntaje; i++) 
             if(obtenerNumeroAleatorio()>=5) numExitos++;                
             
         return numExitos;
     }
     
+    public void combate(Personaje p1, Personaje p2){
+        boolean p1Atacante= true;
+        
+        int recursoP1;
+        int recursoP2;
+        
+        int valorP1;
+        int valorP2;
+        
+        if(p1Atacante){
+            recursoP1=3;
+        }else{
+            recursoP1=3;
+        }
+        
+        if(!p1Atacante){
+            recursoP2=4;
+        }else{
+            recursoP2=3;
+        }
+        
+        valorP1= obtenerPuntaje(recursoP1);
+        valorP2= obtenerPuntaje(recursoP2);
+        
+        if(valorP1>valorP2){
+            //El personaje defensor pierde un punto de vitalidad
+        }
+    }
     public Personaje darAltaP(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduzca el codigo: ");
