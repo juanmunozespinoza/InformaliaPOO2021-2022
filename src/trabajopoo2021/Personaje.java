@@ -119,6 +119,9 @@ public class Personaje {
 
     }
     
+    public void recibeDaño(){
+        this.vitalidad=this.vitalidad-1 ;
+    }
     
     
 }

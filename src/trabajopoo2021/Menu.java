@@ -32,7 +32,7 @@ public class Menu {
         return numExitos;
     }
     
-    public void combate(Personaje p1, Personaje p2){
+    public void combate1Jugador(Personaje p1, Personaje p2){
         boolean p1Atacante= true;
         
         int recursoP1;
@@ -41,25 +41,80 @@ public class Menu {
         int valorP1;
         int valorP2;
         
-        if(p1Atacante){
-            recursoP1=3;
-        }else{
-            recursoP1=3;
+        while(p1.getVitalidad()!=0 || p2.getVitalidad()!=0 ){
+            if(p1Atacante){
+                recursoP1=3;
+            }else{
+                recursoP1=3;
+            }
+
+            if(!p1Atacante){
+                recursoP2=4;
+            }else{
+                recursoP2=3;
+            }
+
+            valorP1= obtenerPuntaje(recursoP1);
+            valorP2= obtenerPuntaje(recursoP2);
+
+            if(p1Atacante){
+                if(valorP1>valorP2){
+                    p2.recibeDaño();
+                }    
+            }else{
+                if(valorP1<valorP2){
+                    p1.recibeDaño();
+                }      
+            }
+
+            
+            p1Atacante= !(p1Atacante);
         }
+
+    }
         
-        if(!p1Atacante){
-            recursoP2=4;
-        }else{
-            recursoP2=3;
-        }
+    public void combate2Jugadores(Personaje p1, Personaje p2){
+        boolean p1Atacante= true;
         
-        valorP1= obtenerPuntaje(recursoP1);
-        valorP2= obtenerPuntaje(recursoP2);
+        int recursoP1;
+        int recursoP2;
         
-        if(valorP1>valorP2){
-            //El personaje defensor pierde un punto de vitalidad
+        int valorP1;
+        int valorP2;
+        
+        while(p1.getVitalidad()!=0 || p2.getVitalidad()!=0 ){
+            if(p1Atacante){
+                recursoP1=3;
+            }else{
+                recursoP1=3;
+            }
+
+            if(!p1Atacante){
+                recursoP2=4;
+            }else{
+                recursoP2=3;
+            }
+
+            valorP1= obtenerPuntaje(recursoP1);
+            valorP2= obtenerPuntaje(recursoP2);
+
+            if(p1Atacante){
+                if(valorP1>valorP2){
+                    p2.recibeDaño();
+                
+                }    
+            }else{
+                if(valorP1<valorP2){
+                    p1.recibeDaño();
+                
+                }      
+            }
+
+            
+            p1Atacante= !(p1Atacante);
         }
     }
+    
     public Personaje darAltaP(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduzca el codigo: ");
